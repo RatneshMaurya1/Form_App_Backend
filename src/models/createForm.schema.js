@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const inputSchema = new mongoose.Schema({
+  id:{
+    type:String,
+    required:true
+  },
   title: { type: String, required: true },
   placeholder: { type: String },
   type: {
@@ -11,11 +15,19 @@ const inputSchema = new mongoose.Schema({
 });
 
 const sectionSchema = new mongoose.Schema({
-  sectionName: { type: String, required: true },
+  id:{
+    type:String,
+    required:true
+  },
+  sectionName: { type: String, default:""},
   inputs: [inputSchema],
 });
 
 const formSchema = new mongoose.Schema({
+  userId:{
+    type:String,
+    required:true
+  },
   title: { type: String, required: true },
   sections: [sectionSchema],
   createdAt: { type: Date, default: Date.now },
