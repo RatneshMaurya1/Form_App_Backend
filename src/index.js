@@ -17,7 +17,7 @@ app.use(express.json())
 app.use("/api", formRouter)
 
 app.get("/", (req,res) => {
-    res.send("hello world")
+    res.send("hello world!")
 })
 
 connectDb()
